@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 30473244}
   - component: {fileID: 30473245}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Popcon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 47282247}
   - component: {fileID: 47282248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Popcon (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66242141}
   - component: {fileID: 66242142}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 75724235}
   - component: {fileID: 75724236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kod_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 82279460}
   - component: {fileID: 82279461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Popcon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 102720688}
   - component: {fileID: 102720689}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AMgroup_back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 112725344}
   - component: {fileID: 112725345}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Donut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117810835}
   - component: {fileID: 117810836}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pop_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 359329874}
   - component: {fileID: 359329875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Burger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404995111}
   - component: {fileID: 404995112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pizza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 519873848}
   - component: {fileID: 519873849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Popcon (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,7 +1078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 537508652}
   - component: {fileID: 537508653}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1162,7 +1162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 738321695}
   - component: {fileID: 738321696}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Popcon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1398,7 @@ GameObject:
   - component: {fileID: 1059390738}
   - component: {fileID: 1059390740}
   - component: {fileID: 1059390739}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: CameraInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1469,7 +1469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1118525066}
   - component: {fileID: 1118525067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AMgroup_front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1576,7 +1576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1541647497}
   - component: {fileID: 1541647496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Postprocess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1625,7 +1625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1647543183}
   - component: {fileID: 1647543184}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Popcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1950,7 +1950,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 1706824589}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 0
@@ -2005,7 +2005,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1737451458}
   - component: {fileID: 1737451459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Popcon (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2151,7 +2151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1904295891}
   - component: {fileID: 1904295892}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hotdog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2236,7 +2236,7 @@ GameObject:
   - component: {fileID: 2041487312}
   - component: {fileID: 2041487313}
   - component: {fileID: 2041487314}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
