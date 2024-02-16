@@ -12,7 +12,7 @@ public class ProGifTexture2DPlayer_Demo : MonoBehaviour
     public RawImage m_RawImage2;
     public Renderer m_Renderer2;
 
-    void Start ()
+    void Start()
     {
         // Use gif Player Component directly: -----------------------------------------------------
         m_ProGifPlayerTexture2D.Play("https://media.giphy.com/media/M8yU8U19nTkRKj6p4d/giphy.gif", false);
@@ -32,7 +32,7 @@ public class ProGifTexture2DPlayer_Demo : MonoBehaviour
             // get and display the decoded texture here:
             m_RawImage2.texture = texture2D;
         });
-        
+
         PGif.iPlayGif("https://media.giphy.com/media/GOPutjEbvhBHmH455X/giphy.gif", m_Renderer2.gameObject, "MyGifPlayerName 02", (texture2D) => {
             // get and display the decoded texture here:
             m_Renderer2.material.mainTexture = texture2D;

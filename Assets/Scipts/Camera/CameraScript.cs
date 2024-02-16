@@ -8,7 +8,6 @@ public class CameraScript : MonoBehaviour
     public int currentCameraIndexBackgroundRemoved;
     WebCamTexture webCamTexture;
     public RawImage cameraDisplay;
-    public RawImage cameraDisplay2;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +25,6 @@ public class CameraScript : MonoBehaviour
         if (webCamTexture != null)
         {
             cameraDisplay.texture = null;
-            cameraDisplay2.texture = null;
             webCamTexture.Stop();
             webCamTexture = null;
         }
@@ -35,7 +33,6 @@ public class CameraScript : MonoBehaviour
             WebCamDevice device = WebCamTexture.devices[currentCameraIndexBackgroundRemoved];
             webCamTexture = new WebCamTexture(device.name);
             cameraDisplay.texture = webCamTexture;
-            cameraDisplay2.texture = webCamTexture;
             webCamTexture.Play();
         }
     }
