@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac097b91d3b48342ad6a30784741e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadPath: 
+  loadPath: '"C:\Users\rctvj\Desktop\Popphy_Image\MyGif.gif"'
   totalFrame: 0
   displayType: 0
   nextFrameTime: 0

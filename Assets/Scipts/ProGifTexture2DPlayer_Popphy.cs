@@ -8,7 +8,7 @@ public class ProGifTexture2DPlayer_Popphy : MonoBehaviour
 
     public RawImage m_RawImage;
 
-    public string LinkImage;
+    public static string LinkImage;
 
     void Start ()
     {

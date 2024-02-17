@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PrototypeScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Popphy/PreviewCapture.unity
+    guid: bf430fc4a2397444c9b0568b58afe61c
+  - enabled: 1
+    path: Assets/Scenes/Popphy/StyleFullView/AmericanDinnerFullView.unity
+    guid: 456b12bc15eafbc43a7c0d8b52daa766
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d4bf35f19e0dbd944af28c8acbd1cae0, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 5a4a38000043ad04db61dd552b42e7c7, type: 2}

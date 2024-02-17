@@ -512,7 +512,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ProGifPlayerTexture2D: {fileID: 1893119501}
   m_RawImage: {fileID: 1893119503}
-  LinkImage: https://firebasestorage.googleapis.com/v0/b/popphy-e676b.appspot.com/o/Movie_012.gif?alt=media&token=71ed1743-793b-4931-9870-2ba53c568939
 --- !u!114 &1893119503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.5698789, b: 0.8396226, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

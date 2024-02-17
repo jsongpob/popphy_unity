@@ -1,94 +1,108 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ProGifRecording_Popphy : MonoBehaviour
 {
-	public float gameTimingToStopRecord = 12f;
-	bool gameEnd = false;
+	public float gameTimingToStopRecord;
 
 	public Camera mCamera = null;
+	string optionalGifFileName;
 
     [Space()]
     /// <summary>
     /// The recorder will save gif using this filename if this is provided. The new gif will replace the old one if their filename are the same.
     /// </summary>
     [Tooltip("The recorder will save gif using this filename if this is provided. The new gif will replace the old one if their filename are the same.")]
-    public string optionalGifFileName = "MyGif";
+    //public string optionalGifFileName = fileName;
 
     [Header("Native Save (+MobileMediaPlugin)")]
     public bool saveToNative = false;
     public bool deleteOriginGif = false;
     public string folderName = "GIF Demo";
 
+    CameraScript CameraScript;
+
     // Use this for initialization
     void Start()
 	{
+        CameraScript = GameObject.FindGameObjectWithTag("CameraController").GetComponent<CameraScript>();
+
         //Create an instance for ProGifManager
         ProGifManager gifMgr = ProGifManager.Instance;
 
         //Make some changes to the record settings, you can let it auto aspect with screen size.. 
+        gifMgr.SetRecordSettings(true, 720, 720, 5, 24, 1, 80);
 
         //Or give an aspect ratio for cropping gif frames just before encoding
         //gifMgr.SetRecordSettings(new Vector2(1, 1), 300, 300, 1, 15, 0, 30);
 
+    }
+
+    void Update()
+    {
+        //Create an instance for ProGifManager
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            StartCoroutine(WaitForSaving());
+        }
+    }
+
+    IEnumerator WaitForSaving()
+    {
+        ProGifManager gifMgr = ProGifManager.Instance;
         //Start gif recording
-            gifMgr.SetRecordSettings(true, 300, 300, 3, 15, 1, 30);
+        gifMgr.StartRecord((mCamera != null) ? mCamera : Camera.main, (progress) =>
+        {
+            Debug.Log("[SimpleStartDemo] On record progress: " + progress);
+        },
+        () => {
+            Debug.Log("[SimpleStartDemo] On recorder buffer max.");
+        });
 
-            gifMgr.StartRecord((mCamera != null)? mCamera:Camera.main,(progress)=>
-				{
-					Debug.Log("[SimpleStartDemo] On record progress: " + progress);
-				},
-				()=>{
-					Debug.Log("[SimpleStartDemo] On recorder buffer max.");
-				});
-	}
+        yield return new WaitForSeconds(5);
 
-	float nextUpdateTime = 0f;
-	void Update()
-	{
-        if (gameEnd) return;
+        Capture();
+    }
 
-		if(Time.time > nextUpdateTime)
-		{
-			//nextUpdateTime = Time.time + 0.5f;
-			//Camera.main.backgroundColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-		}
+    private void Capture()
+    {
+        ProGifManager gifMgr = ProGifManager.Instance;
+        gifMgr.m_GifRecorder.recorderCom.SaveFolder = "C:\\Users\\rctvj\\Desktop\\Popphy_Image";
+        optionalGifFileName = System.DateTime.Now.ToString("dd_MM_yyyy_HHmmss") + "_PopphyTest";
+        //Stop the recording
+        gifMgr.StopAndSaveRecord(
+            () =>
+            {
+                Debug.Log("[SimpleStartDemo] On pre-processing done.");
+            },
+            (id, progress) =>
+            {
+                //Debug.Log("[SimpleStartDemo] On save progress: " + progress);
+                if (progress < 1f)
+                {
 
-		if(Time.time > gameTimingToStopRecord - 1f)
-		{
+                }
+                else
+                {
 
-		}
+                }
+            },
+            (id, path) =>
+            {
+                //Clear the existing recorder, player and reset gif manager
+                gifMgr.Clear();
+                Debug.Log("[SimpleStartDemo] On saved, origin save path: " + path);
+                ProGifTexture2DPlayer_Popphy.LinkImage = path;
+                //CameraScript.StopCamera();
 
-		if(Time.time > gameTimingToStopRecord)
-		{
-			gameEnd = true;
-			ProGifManager gifMgr = ProGifManager.Instance;
-            gifMgr.m_GifRecorder.recorderCom.SaveFolder = "C:\\Users\\rctvj\\Desktop\\Popphy_Image";
+                SceneManager.LoadScene("PreviewCapture");
 
-            //Stop the recording
-            gifMgr.StopAndSaveRecord(
-				()=>{
-					Debug.Log("[SimpleStartDemo] On pre-processing done.");
-				}, 
-				(id, progress)=>{
-					//Debug.Log("[SimpleStartDemo] On save progress: " + progress);
-					if(progress < 1f)
-					{
-						
-					}
-					else
-					{
-						
-					}
-				},
-				(id, path)=>{
-					//Clear the existing recorder, player and reset gif manager
-					gifMgr.Clear();
-                    Debug.Log("[SimpleStartDemo] On saved, origin save path: " + path);
-
-					if (saveToNative)
-					{
+                if (saveToNative)
+                {
 #if SDEV_MobileMedia
 						// Copy the newly created GIF file from internal path to external, i.e. Android/iOS device gallery
                         string nativeSavePath = MobileMedia.CopyMedia(path, folderName, System.IO.Path.GetFileNameWithoutExtension(path), ".gif", true);
@@ -103,16 +117,15 @@ public class ProGifRecording_Popphy : MonoBehaviour
 #endif
 
 #endif
-					}
-					else
-					{
+                }
+                else
+                {
 #if UNITY_EDITOR
-						Application.OpenURL(System.IO.Path.GetDirectoryName(path));
+                    //Application.OpenURL(System.IO.Path.GetDirectoryName(path));
 #endif
-					}
-                },
-                optionalGifFileName
-                );
-		}
-	}
+                }
+            },
+            optionalGifFileName
+            );
+    }
 }

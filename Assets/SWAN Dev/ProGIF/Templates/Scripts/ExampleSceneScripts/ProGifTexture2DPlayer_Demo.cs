@@ -15,7 +15,7 @@ public class ProGifTexture2DPlayer_Demo : MonoBehaviour
     void Start()
     {
         // Use gif Player Component directly: -----------------------------------------------------
-        m_ProGifPlayerTexture2D.Play("https://media.giphy.com/media/M8yU8U19nTkRKj6p4d/giphy.gif", false);
+        m_ProGifPlayerTexture2D.Play("C:\\Users\\rctvj\\Desktop\\Popphy_Image\\MyGif.gif", false);
         m_ProGifPlayerTexture2D.OnTexture2DCallback = (texture2D) =>
         {
             // get and display the decoded texture here:
