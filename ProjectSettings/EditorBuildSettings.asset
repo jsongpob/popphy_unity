@@ -5,15 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/PrototypeScene.unity
+  - enabled: 0
+    path: Assets/Scenes/PrototypeS/PrototypeScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Popphy/PreviewCapture.unity
+    path: Assets/Scenes/onPreviewScene.unity
+    guid: fae1adbf8f10f8648aa29ade0a3f473c
+  - enabled: 1
+    path: Assets/Scenes/ListStylesScene.unity
+    guid: f09209c3154f4a1459e5589ee92d7af1
+  - enabled: 1
+    path: Assets/Scenes/StyleFullView/AmericanDinnerFullView.unity
+    guid: 456b12bc15eafbc43a7c0d8b52daa766
+  - enabled: 1
+    path: Assets/Scenes/StyleSelectedPreview/AmericanDinnerStylePreview.unity
+    guid: 2cca153d431207e418cc924402c36b74
+  - enabled: 1
+    path: Assets/Scenes/PreviewCapture.unity
     guid: bf430fc4a2397444c9b0568b58afe61c
   - enabled: 1
-    path: Assets/Scenes/Popphy/StyleFullView/AmericanDinnerFullView.unity
-    guid: 456b12bc15eafbc43a7c0d8b52daa766
+    path: Assets/Scenes/SuscessScene.unity
+    guid: 0db6a528a78b39647a808b7224b4935e
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d4bf35f19e0dbd944af28c8acbd1cae0, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 5a4a38000043ad04db61dd552b42e7c7, type: 2}

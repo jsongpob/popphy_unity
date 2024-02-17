@@ -8,6 +8,8 @@ using BestHTTP.SocketIO.Events;
 using static UnityEngine.Rendering.DebugUI;
 using static UnityEditor.Progress;
 using BestHTTP.SocketIO3.Events;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class SocketManagerScript : MonoBehaviour
 {
@@ -20,6 +22,19 @@ public class SocketManagerScript : MonoBehaviour
 
     void Start()
     {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("SocketScript");
+
+        if (objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+
+
+
         Application.runInBackground = true;
 
         SocketOptions options = new SocketOptions();
@@ -33,6 +48,8 @@ public class SocketManagerScript : MonoBehaviour
 
         manager.Socket.On<string>("test", OnMethod);
         manager.Socket.Emit("channel_platfrom", "msg 1");
+
+        manager.Socket.On<string>("setUnityPlatFrom", DataFromSocketServer);
     }
 
     void OnConnected(ConnectResponse resp)
@@ -52,6 +69,45 @@ public class SocketManagerScript : MonoBehaviour
     void OnMethod(string data)
     {
         Debug.Log("OnMethod!" + data);
+    }
+
+    void DataFromSocketServer(string data)
+    {
+        if (data == "onPreviewScene")
+        {
+            Debug.Log("+ onPreviewScene // Scene Loaded");
+            SceneManager.LoadScene("onPreviewScene");
+        }
+
+        if (data == "onListStyleScene")
+        {
+            Debug.Log("+ onListStyleScene // Scene Loaded");
+            SceneManager.LoadScene("ListStylesScene");
+        }
+
+        if (data == "onStyleSelectedScene")
+        {
+            Debug.Log("+ onStyleSelectedScene // Scene Loaded");
+            SceneManager.LoadScene("AmericanDinnerStylePreview");
+        }
+
+        if (data == "onStyleFullViewScene")
+        {
+            Debug.Log("+ onStyleFullViewScene // Scene Loaded");
+            SceneManager.LoadScene("AmericanDinnerFullView");
+        }
+
+        if (data == "onPreviewCaptureScene")
+        {
+            Debug.Log("+ onPreviewCaptureScene // Scene Loaded");
+            SceneManager.LoadScene("PreviewCapture");
+        }
+
+        if (data == "onCaptureGIF")
+        {
+            ProGifRecording_Popphy.ValueToStart = true;
+            Debug.Log("+ onCaptureGIF // Capturing GIF");
+        }
     }
 
 }

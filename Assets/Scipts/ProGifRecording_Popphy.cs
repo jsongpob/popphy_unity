@@ -12,6 +12,8 @@ public class ProGifRecording_Popphy : MonoBehaviour
 	public Camera mCamera = null;
 	string optionalGifFileName;
 
+    public static bool ValueToStart = false;
+
     [Space()]
     /// <summary>
     /// The recorder will save gif using this filename if this is provided. The new gif will replace the old one if their filename are the same.
@@ -45,10 +47,21 @@ public class ProGifRecording_Popphy : MonoBehaviour
     void Update()
     {
         //Create an instance for ProGifManager
-        if (Input.GetKeyDown(KeyCode.C))
+/*        if (Input.GetKeyDown(KeyCode.C))
         {
             StartCoroutine(WaitForSaving());
+        }*/
+
+        if (ValueToStart == true)
+        {
+            RunCapture();
         }
+    }
+
+    public void RunCapture()
+    {
+        ValueToStart = false;
+        StartCoroutine(WaitForSaving());
     }
 
     IEnumerator WaitForSaving()
