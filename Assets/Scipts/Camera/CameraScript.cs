@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour
 {
     public int currentCameraIndexBackgroundRemoved;
     WebCamTexture webCamTexture;
-    public RawImage cameraDisplay;
-    RawImage rawImageComponent;
+
+    //public RawImage cameraDisplay;
+
+    public RawImage rawImageComponent;
 
     WebCamDevice device;
 
-    public string rawImageTag = "RawImageTag";
     GameObject rawImageObject;
 
-    float TimerDelay;
+    bool cameraStarted = false;
+    string currentScene;
 
     void Awake()
     {
-
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("CameraController");
+/*        GameObject[] objs = GameObject.FindGameObjectsWithTag("CameraController");
 
         if (objs.Length > 1)
         {
@@ -29,32 +31,34 @@ public class CameraScript : MonoBehaviour
         else
         {
             DontDestroyOnLoad(this.gameObject);
-        }
+        }*/
     }
 
     void Start()
     {
-        rawImageObject = GameObject.FindWithTag(rawImageTag);
-        rawImageComponent = rawImageObject?.GetComponent<RawImage>();
-
         device = WebCamTexture.devices[currentCameraIndexBackgroundRemoved];
         webCamTexture = new WebCamTexture(device.name);
 
-        rawImageComponent.texture = webCamTexture;
+        //rawImageObject = GameObject.FindWithTag("RawImageTag");
+        //rawImageComponent = rawImageObject?.GetComponent<RawImage>();
 
-        if (MainManager.dontStart)
+        webCamTexture.Play();
+
+        if (webCamTexture.isPlaying)
+        {
+            rawImageComponent.texture = webCamTexture;
+        }
+
+/*        if (cameraStarted == false)
         {
             StartCamera();
-            MainManager.dontStart = false;
-        }
+            cameraStarted = true;
+        }*/
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            //StartCameraBackgroundRemoved();
-        }
+
     }
 
     public void StartCamera()
@@ -66,6 +70,16 @@ public class CameraScript : MonoBehaviour
             rawImageComponent.texture = webCamTexture;
             webCamTexture.Play();
         }
+    }
+
+    IEnumerator GetCurrentScene()
+    {
+        rawImageObject = GameObject.FindWithTag("RawImageTag");
+        rawImageComponent = rawImageObject?.GetComponent<RawImage>();
+
+        yield return new WaitForSeconds(2);
+
+        rawImageComponent.texture = webCamTexture;
     }
 
 /*    public void StartCameraBackgroundRemoved()
@@ -87,8 +101,12 @@ public class CameraScript : MonoBehaviour
 
     public void StopCamera()
     {
-        cameraDisplay.texture = null;
-        webCamTexture.Stop();
-        webCamTexture = null;
-    } 
+        //cameraDisplay.texture = null;
+        //webCamTexture.Stop();
+        //webCamTexture = null;
+        if (webCamTexture.isPlaying)
+        {
+            webCamTexture.Stop();
+        }
+    }
 }

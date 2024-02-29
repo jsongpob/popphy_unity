@@ -27,6 +27,7 @@ public class ProGifRecording_Popphy : MonoBehaviour
     public string folderName = "GIF Demo";
 
     CameraScript CameraScript;
+    AnimationController AnimationController;
 
     // Use this for initialization
     void Start()
@@ -37,7 +38,7 @@ public class ProGifRecording_Popphy : MonoBehaviour
         ProGifManager gifMgr = ProGifManager.Instance;
 
         //Make some changes to the record settings, you can let it auto aspect with screen size.. 
-        gifMgr.SetRecordSettings(true, 720, 720, 5, 24, 1, 80);
+        gifMgr.SetRecordSettings(true, 720, 720, 4, 12, 1, 80);
 
         //Or give an aspect ratio for cropping gif frames just before encoding
         //gifMgr.SetRecordSettings(new Vector2(1, 1), 300, 300, 1, 15, 0, 30);
@@ -55,6 +56,7 @@ public class ProGifRecording_Popphy : MonoBehaviour
         if (ValueToStart == true)
         {
             RunCapture();
+            AnimationController.CapturingState = "1";
         }
     }
 
@@ -66,6 +68,14 @@ public class ProGifRecording_Popphy : MonoBehaviour
 
     IEnumerator WaitForSaving()
     {
+        AnimationController.CapturingState = "2";
+
+        yield return new WaitForSeconds(5);
+
+        AnimationController.CapturingState = "3";
+
+        yield return new WaitForSeconds(3);
+
         ProGifManager gifMgr = ProGifManager.Instance;
         //Start gif recording
         gifMgr.StartRecord((mCamera != null) ? mCamera : Camera.main, (progress) =>
@@ -76,7 +86,9 @@ public class ProGifRecording_Popphy : MonoBehaviour
             Debug.Log("[SimpleStartDemo] On recorder buffer max.");
         });
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
+
+        AnimationController.CapturingState = "4";
 
         Capture();
     }
@@ -87,6 +99,7 @@ public class ProGifRecording_Popphy : MonoBehaviour
         gifMgr.m_GifRecorder.recorderCom.SaveFolder = "C:\\Users\\rctvj\\Desktop\\Popphy_Image";
         optionalGifFileName = System.DateTime.Now.ToString("dd_MM_yyyy_HHmmss") + "_PopphyTest";
         //Stop the recording
+
         gifMgr.StopAndSaveRecord(
             () =>
             {
@@ -110,7 +123,8 @@ public class ProGifRecording_Popphy : MonoBehaviour
                 gifMgr.Clear();
                 Debug.Log("[SimpleStartDemo] On saved, origin save path: " + path);
                 ProGifTexture2DPlayer_Popphy.LinkImage = path;
-                //CameraScript.StopCamera();
+                AnimationController.CapturingState = "0";
+                CameraScript.StopCamera();
 
                 SceneManager.LoadScene("PreviewCapture");
 
@@ -134,6 +148,7 @@ public class ProGifRecording_Popphy : MonoBehaviour
                 else
                 {
 #if UNITY_EDITOR
+                    gifMgr.Clear();
                     //Application.OpenURL(System.IO.Path.GetDirectoryName(path));
 #endif
                 }

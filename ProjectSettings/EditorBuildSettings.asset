@@ -21,6 +21,15 @@ EditorBuildSettings:
     path: Assets/Scenes/StyleSelectedPreview/AmericanDinnerStylePreview.unity
     guid: 2cca153d431207e418cc924402c36b74
   - enabled: 1
+    path: Assets/Scenes/StyleFullView/AnimalPartyFullView.unity
+    guid: 158bc1f506165ac41b3c6a78145964f5
+  - enabled: 1
+    path: Assets/Scenes/StyleFullView/TechnoShowOffFullView.unity
+    guid: e9bd3e493b355114c8833bfdc5a61dbd
+  - enabled: 1
+    path: Assets/Scenes/StyleFullView/ThailandFullView.unity
+    guid: 7d189786d59ad9a429fccf4b5140e29f
+  - enabled: 1
     path: Assets/Scenes/PreviewCapture.unity
     guid: bf430fc4a2397444c9b0568b58afe61c
   - enabled: 1

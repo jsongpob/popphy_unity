@@ -6,21 +6,16 @@ using UnityEngine;
 using BestHTTP.SocketIO3;
 using BestHTTP.SocketIO.Events;
 using static UnityEngine.Rendering.DebugUI;
-using static UnityEditor.Progress;
 using BestHTTP.SocketIO3.Events;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class SocketManagerScript : MonoBehaviour
 {
     private SocketManager manager;
 
+    CameraScript CameraScript;
+
     private void Awake()
-    {
-
-    }
-
-    void Start()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("SocketScript");
 
@@ -32,9 +27,10 @@ public class SocketManagerScript : MonoBehaviour
         {
             DontDestroyOnLoad(this.gameObject);
         }
+    }
 
-
-
+    void Start()
+    {
         Application.runInBackground = true;
 
         SocketOptions options = new SocketOptions();
@@ -91,12 +87,6 @@ public class SocketManagerScript : MonoBehaviour
             SceneManager.LoadScene("AmericanDinnerStylePreview");
         }
 
-        if (data == "onStyleFullViewScene")
-        {
-            Debug.Log("+ onStyleFullViewScene // Scene Loaded");
-            SceneManager.LoadScene("AmericanDinnerFullView");
-        }
-
         if (data == "onPreviewCaptureScene")
         {
             Debug.Log("+ onPreviewCaptureScene // Scene Loaded");
@@ -107,6 +97,31 @@ public class SocketManagerScript : MonoBehaviour
         {
             ProGifRecording_Popphy.ValueToStart = true;
             Debug.Log("+ onCaptureGIF // Capturing GIF");
+        }
+
+
+        if (data == "onAmericanDinner_StyleFullViewScene")
+        {
+            Debug.Log("+ onStyleFullViewScene // Scene Loaded");
+            SceneManager.LoadScene("AmericanDinnerFullView");
+        }
+
+        if (data == "onAnimalParty_StyleFullViewScene")
+        {
+            Debug.Log("+ onStyleFullViewScene // Scene Loaded");
+            SceneManager.LoadScene("AnimalPartyFullView");
+        }
+
+        if (data == "onTechnoShowOff_StyleFullViewScene")
+        {
+            Debug.Log("+ onStyleFullViewScene // Scene Loaded");
+            SceneManager.LoadScene("TechnoShowOffFullView");
+        }
+
+        if (data == "onThailand_StyleFullViewScene")
+        {
+            Debug.Log("+ onStyleFullViewScene // Scene Loaded");
+            SceneManager.LoadScene("ThailandFullView");
         }
     }
 
