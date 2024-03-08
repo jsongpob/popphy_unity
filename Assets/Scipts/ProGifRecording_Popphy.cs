@@ -38,7 +38,8 @@ public class ProGifRecording_Popphy : MonoBehaviour
         ProGifManager gifMgr = ProGifManager.Instance;
 
         //Make some changes to the record settings, you can let it auto aspect with screen size.. 
-        gifMgr.SetRecordSettings(true, 720, 720, 4, 12, 1, 80);
+        gifMgr.SetRecordSettings(true, 360, 360, 4, 4, 0, 25); //OPTIMIZE VER
+        //gifMgr.SetRecordSettings(true, 720, 1280, 5, 50, 0, 80);
 
         //Or give an aspect ratio for cropping gif frames just before encoding
         //gifMgr.SetRecordSettings(new Vector2(1, 1), 300, 300, 1, 15, 0, 30);
@@ -74,7 +75,7 @@ public class ProGifRecording_Popphy : MonoBehaviour
 
         AnimationController.CapturingState = "3";
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
 
         ProGifManager gifMgr = ProGifManager.Instance;
         //Start gif recording
@@ -86,9 +87,9 @@ public class ProGifRecording_Popphy : MonoBehaviour
             Debug.Log("[SimpleStartDemo] On recorder buffer max.");
         });
 
-        yield return new WaitForSeconds(3);
-
+        yield return new WaitForSeconds(1);
         AnimationController.CapturingState = "4";
+        yield return new WaitForSeconds(1);
 
         Capture();
     }

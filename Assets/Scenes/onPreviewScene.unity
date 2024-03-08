@@ -123,6 +123,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &124759770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124759772}
+  - component: {fileID: 124759771}
+  m_Layer: 0
+  m_Name: BackgroundVideoController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!328 &124759771
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124759770}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: f365344eeb67a3943bf672ef5c24dad3, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 301806945}
+  m_TargetTexture: {fileID: 8400000, guid: 829879e7057e4744dabfa675dd43f246, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 0
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 00
+  m_DirectAudioMutes: 01
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &124759772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124759770}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -103.43795, y: 1229.4321, z: -133.85266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &301806943
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d0686af88298b49a6a2553446c93ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UriAddress: http://192.168.182.98:3000/
 --- !u!4 &938154184
 Transform:
   m_ObjectHideFlags: 0
@@ -522,7 +591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1613764933
 RectTransform:
   m_ObjectHideFlags: 0
@@ -619,7 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ProGifPlayerTexture2D: {fileID: 1613764937}
   m_RawImage: {fileID: 1613764934}
-  LinkImage: D:\Unity\Projects\popphy_unity\FilePreviewDemo\PopphyPreviewDemo.gif
+  LinkImage: D:\Unity\Projects\popphy_unity\FilePreviewDemo\popphy_preview_temp.gif
 --- !u!1 &2064465583
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,4 +768,5 @@ SceneRoots:
   - {fileID: 301806946}
   - {fileID: 482405438}
   - {fileID: 641587946}
+  - {fileID: 124759772}
   - {fileID: 938154184}

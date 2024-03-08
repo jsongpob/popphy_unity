@@ -17,7 +17,7 @@ public class CameraScript : MonoBehaviour
 
     GameObject rawImageObject;
 
-    bool cameraStarted = false;
+    //bool cameraStarted = false;
     string currentScene;
 
     void Awake()

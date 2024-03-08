@@ -12,6 +12,7 @@ public class ProGifTexture2DPlayer_Popphy : MonoBehaviour
 
     void Start ()
     {
+        SocketManagerScript.FilePathPhoto = LinkImage;
         // Use gif Player Component directly: -----------------------------------------------------
         m_ProGifPlayerTexture2D.Play(LinkImage, false);
         m_ProGifPlayerTexture2D.OnTexture2DCallback = (texture2D) =>
