@@ -97,7 +97,7 @@ public class ProGifRecording_Popphy : MonoBehaviour
     private void Capture()
     {
         ProGifManager gifMgr = ProGifManager.Instance;
-        gifMgr.m_GifRecorder.recorderCom.SaveFolder = "C:\\Users\\rctvj\\Desktop\\Popphy_Image";
+        gifMgr.m_GifRecorder.recorderCom.SaveFolder = "D:\\Popphy_photo\\day1";
         optionalGifFileName = System.DateTime.Now.ToString("dd_MM_yyyy_HHmmss") + "_PopphyTest";
         //Stop the recording
 

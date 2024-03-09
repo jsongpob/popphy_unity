@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ProGifPlayerTexture2D: {fileID: 849390454}
   m_RawImage: {fileID: 849390456}
-  LinkImage: D:\Unity\Projects\popphy_unity\FilePreviewDemo\Animal_Party_Preview.gif
+  LinkImage: C:\Users\aopke\OneDrive\Desktop\Popphy\popphy_unity\FilePreviewDemo\Animal_Party_Preview.gif
 --- !u!1 &1381920991
 GameObject:
   m_ObjectHideFlags: 0
