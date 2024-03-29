@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour
 {
+    static public bool isStopCamera = false;
+
     public int currentCameraIndexBackgroundRemoved;
     WebCamTexture webCamTexture;
 
@@ -58,7 +60,11 @@ public class CameraScript : MonoBehaviour
 
     void Update()
     {
-
+        if (isStopCamera)
+        {
+            StopCamera();
+            isStopCamera = false;
+        }
     }
 
     public void StartCamera()

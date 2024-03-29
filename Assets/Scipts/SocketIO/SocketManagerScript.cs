@@ -9,6 +9,7 @@ using static UnityEngine.Rendering.DebugUI;
 using BestHTTP.SocketIO3.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
+using Unity.VisualScripting;
 
 public class SocketManagerScript : MonoBehaviour
 {
@@ -105,7 +106,11 @@ public class SocketManagerScript : MonoBehaviour
         if (data == "selectedListOfStyle")
         {
             Debug.Log("+ selectedListOfStyle // Scene Loaded");
-            SceneManager.LoadScene("ListStylesScene"); //SCENE
+            CameraScript.isStopCamera = true;
+            if (CameraScript.isStopCamera)
+            {
+                SceneManager.LoadScene("ListStylesScene"); //SCENE
+            }
         }
 
         //__________PREVIEW_THEME_______
@@ -132,6 +137,19 @@ public class SocketManagerScript : MonoBehaviour
         {
             Debug.Log("+ selectedTSpreview // Scene Loaded");
             SceneManager.LoadScene("TechnoShowoffPreview"); //SCENE
+        }
+
+        switch (data)
+        {
+            case "selectedADpreview":
+                Debug.Log("+ selectedADpreview // Scene Loaded");
+                SceneManager.LoadScene("AmericanDinnerPreview"); //SCENE
+                break;
+
+            case "selectedAPpreview":
+                Debug.Log("+ selectedAPpreview // Scene Loaded");
+                SceneManager.LoadScene("AnimalPartyPreview"); //SCENE
+                break;
         }
 
         //__________PREVIEW_CAPTURED_________
@@ -207,6 +225,36 @@ public class SocketManagerScript : MonoBehaviour
             Debug.Log("Photo uploaded successfully.");
             Debug.Log(www.downloadHandler.text);
             ImageURL = www.downloadHandler.text;
+        }
+    }
+
+    //DEBUG FOR KEYBOARD
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene("onPreviewScene"); //SCENE
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene("ListStylesScene"); //SCENE
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            SceneManager.LoadScene("AmericanDinnerPreview"); //SCENE
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha4))
+        {
+            SceneManager.LoadScene("AmericanDinnerFullView"); //SCENE
+        }
+
+        //CAPTURE
+        if (Input.GetKeyUp(KeyCode.KeypadEnter))
+        {
+            ProGifRecording_Popphy.ValueToStart = true;
         }
     }
 }

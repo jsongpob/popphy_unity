@@ -10,6 +10,9 @@ public class AnimationController : MonoBehaviour
     public Animator CountingDown_Animator;
     public Animator Capturing_Animator;
     public Animator Captured_Animator;
+    public Animator Look_At_Animator;
+
+    public Animator Bar_Show;
 
     public static string CapturingState = "0";
 
@@ -23,21 +26,27 @@ public class AnimationController : MonoBehaviour
         if (CapturingState == "1")
         {
             RecommendToTakePhoto_Animator.SetTrigger("hideRecommendToTakePhoto");
-            CountingDown_Animator.SetTrigger("CountingDown");
+            Look_At_Animator.SetTrigger("Looking");
             //ReadyForCapture_Animator.SetTrigger("showReadyForCapture");
         }
 
         if (CapturingState == "2")
         {
-            CountingDown_Animator.SetTrigger("CountingDown");
+            Look_At_Animator.SetTrigger("Looking");
         }
 
         if (CapturingState == "3")
         {
-            Capturing_Animator.SetTrigger("Capturing");
+            Bar_Show.SetTrigger("ShowBar");
+            CountingDown_Animator.SetTrigger("CountingDown");
         }
 
         if (CapturingState == "4")
+        {
+            Capturing_Animator.SetTrigger("Capturing");
+        }
+
+        if (CapturingState == "5")
         {
             Capturing_Animator.SetTrigger("EndCapturing");
             Captured_Animator.SetTrigger("Captured");

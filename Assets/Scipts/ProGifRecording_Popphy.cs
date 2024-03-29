@@ -4,9 +4,12 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ProGifRecording_Popphy : MonoBehaviour
 {
+    public Slider slider;
+
 	public float gameTimingToStopRecord;
 
 	public Camera mCamera = null;
@@ -38,11 +41,13 @@ public class ProGifRecording_Popphy : MonoBehaviour
         ProGifManager gifMgr = ProGifManager.Instance;
 
         //Make some changes to the record settings, you can let it auto aspect with screen size.. 
-        gifMgr.SetRecordSettings(true, 360, 360, 4, 4, 0, 25); //OPTIMIZE VER
+        gifMgr.SetRecordSettings(true, 360, 360, 5, 4, 0, 25); //OPTIMIZE VER
         //gifMgr.SetRecordSettings(true, 720, 1280, 5, 50, 0, 80);
 
         //Or give an aspect ratio for cropping gif frames just before encoding
         //gifMgr.SetRecordSettings(new Vector2(1, 1), 300, 300, 1, 15, 0, 30);
+
+        slider.value = 0f;
 
     }
 
@@ -69,11 +74,13 @@ public class ProGifRecording_Popphy : MonoBehaviour
 
     IEnumerator WaitForSaving()
     {
-        AnimationController.CapturingState = "2";
+        yield return new WaitForSeconds(4);
+
+        AnimationController.CapturingState = "3";
 
         yield return new WaitForSeconds(5);
 
-        AnimationController.CapturingState = "3";
+        AnimationController.CapturingState = "4";
 
         yield return new WaitForSeconds(2);
 
@@ -82,13 +89,14 @@ public class ProGifRecording_Popphy : MonoBehaviour
         gifMgr.StartRecord((mCamera != null) ? mCamera : Camera.main, (progress) =>
         {
             Debug.Log("[SimpleStartDemo] On record progress: " + progress);
+            slider.value = progress*3f;
         },
         () => {
             Debug.Log("[SimpleStartDemo] On recorder buffer max.");
         });
 
         yield return new WaitForSeconds(1);
-        AnimationController.CapturingState = "4";
+        AnimationController.CapturingState = "5";
         yield return new WaitForSeconds(1);
 
         Capture();
@@ -97,7 +105,7 @@ public class ProGifRecording_Popphy : MonoBehaviour
     private void Capture()
     {
         ProGifManager gifMgr = ProGifManager.Instance;
-        gifMgr.m_GifRecorder.recorderCom.SaveFolder = "D:\\Popphy_photo\\day1";
+        gifMgr.m_GifRecorder.recorderCom.SaveFolder = "C:\\Users\\rctvj\\Desktop\\popphy-test";
         optionalGifFileName = System.DateTime.Now.ToString("dd_MM_yyyy_HHmmss") + "_PopphyTest";
         //Stop the recording
 
