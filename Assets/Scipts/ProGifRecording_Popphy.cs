@@ -41,7 +41,7 @@ public class ProGifRecording_Popphy : MonoBehaviour
         ProGifManager gifMgr = ProGifManager.Instance;
 
         //Make some changes to the record settings, you can let it auto aspect with screen size.. 
-        gifMgr.SetRecordSettings(true, 360, 360, 5, 4, 0, 25); //OPTIMIZE VER
+        gifMgr.SetRecordSettings(true, 360, 360, 5, 4, 0, 35); //OPTIMIZE VER
         //gifMgr.SetRecordSettings(true, 720, 1280, 5, 50, 0, 80);
 
         //Or give an aspect ratio for cropping gif frames just before encoding
