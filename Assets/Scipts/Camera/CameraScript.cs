@@ -65,6 +65,10 @@ public class CameraScript : MonoBehaviour
             StopCamera();
             isStopCamera = false;
         }
+        else
+        {
+            webCamTexture.Play();
+        }
     }
 
     public void StartCamera()
