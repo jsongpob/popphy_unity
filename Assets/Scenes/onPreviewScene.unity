@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d0686af88298b49a6a2553446c93ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UriAddress: http://192.168.1.143/
+  UriAddress: https://popphy-socket-server.onrender.com
 --- !u!4 &938154184
 Transform:
   m_ObjectHideFlags: 0
